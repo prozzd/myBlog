@@ -15,7 +15,7 @@
 <meta property="og:description" content="css1.选择器​	后代选择器、子代选择器、并集选择器、链接伪类选择器（a{},a:hover{}）、:focus选择器（input:focus{}） 2.css的三大特性 层叠性：根据就近原则，哪个css离元素近则采用哪个  继承性：body定义的样式会继承到该body下的所有子元素  优先级：继承&#x2F;通配符样式（0,0,0,0）&lt;元素选择器（0,0,0,1）&lt;类选择器、伪类">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-08-14T00:54:17.000Z">
-<meta property="article:modified_time" content="2023-08-17T01:07:09.742Z">
+<meta property="article:modified_time" content="2023-08-21T01:26:34.625Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
@@ -62,7 +62,7 @@
 
 <!-- Variable -->
 <script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"John Doe","root":"/","typed_text":null,"theme_version":"2.0.9","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"/img/favicon.svg","icon16":"/img/favicon.svg","icon32":"/img/favicon.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":false,"hidden":"/failure.ico","showText":"(/≧▽≦/)Hey! Good again!","hideText":"(●—●)Oh, crash!"},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms","author":"Post author: ","copyright_link":"Post link: ","copyright_license_title":"Copyright Notice: ","copyright_license_content":"All articles in this blog are licensed under undefined unless otherwise stated.","copy_success":"Copied","copy_failure":"Copy failed","open_read_mode":"Enter reading mode","exit_read_mode":"Exit reading mode","notice_outdate_message":"It has been undefined days since the last update, the content of the article may be outdated.","just":"Just","min":"minutes ago","hour":"hours ago","day":"days ago","month":"months ago"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false}};</script>
-<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-08-17 09:07:09"};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-08-21 09:26:34"};</script>
 
 <!-- Theme mode css -->
 <link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.0.9" id="trm-switch-style">
@@ -355,6 +355,29 @@
 <li>可单独设置border-radius-top-left等属性</li>
 </ul>
 </li>
+</ul>
+<h2 id="4-浮动"><a href="#4-浮动" class="headerlink" title="4. 浮动"></a>4. 浮动</h2><p>特性：</p>
+<ul>
+<li>脱标，且不再保留原先的位置</li>
+<li>一行显示，如果放不下则换行</li>
+<li>行内元素添加浮动后具有行内块属性，可以给宽高</li>
+<li>块级元素添加浮动后，大小由内容来决定（相当于行内块元素）</li>
+</ul>
+<p>使用：</p>
+<ul>
+<li><p>与标准流父盒子搭配使用，实现在父盒子中居左或居右</p>
+</li>
+<li><p>想要元素水平排列，就将元素全加浮动</p>
+</li>
+<li><p>浮动盒子只会影响自己之后的标准流，不会影响前面的标准流</p>
+</li>
+<li><p>父元素清除浮动的原因是为了不设置高度，随子元素的高度变化而变化</p>
+<ul>
+<li>额外标签法：在最后一个浮动元素末尾添加一个空div（<strong>必须是块级元素</strong>），并设置clear:both</li>
+<li>父元素添加overflow:hidden，可清除浮动，但是无法显示溢出的部分</li>
+<li>双伪元素法：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.clearfix:before,.clearfix:after&#123;</span><br><span class="line">	content:&quot;&quot;;</span><br><span class="line">	display:table</span><br><span class="line">&#125;</span><br><span class="line">.clearfix:after&#123;</span><br><span class="line">	clear:both</span><br><span class="line">&#125;</span><br><span class="line">.clearfix&#123;</span><br><span class="line">	*zoom:1;	//IE6,IE7必须使用该属性</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 
 </article>
