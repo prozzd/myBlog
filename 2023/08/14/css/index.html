@@ -15,7 +15,7 @@
 <meta property="og:description" content="css1.选择器​	后代选择器、子代选择器、并集选择器、链接伪类选择器（a{},a:hover{}）、:focus选择器（input:focus{}） 2.css的三大特性 层叠性：根据就近原则，哪个css离元素近则采用哪个  继承性：body定义的样式会继承到该body下的所有子元素  优先级：继承&#x2F;通配符样式（0,0,0,0）&lt;元素选择器（0,0,0,1）&lt;类选择器、伪类">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-08-14T00:54:17.000Z">
-<meta property="article:modified_time" content="2023-08-22T01:35:40.142Z">
+<meta property="article:modified_time" content="2023-08-23T01:18:26.908Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
@@ -62,7 +62,7 @@
 
 <!-- Variable -->
 <script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"John Doe","root":"/","typed_text":null,"theme_version":"2.0.9","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"/img/favicon.svg","icon16":"/img/favicon.svg","icon32":"/img/favicon.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":false,"hidden":"/failure.ico","showText":"(/≧▽≦/)Hey! Good again!","hideText":"(●—●)Oh, crash!"},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms","author":"Post author: ","copyright_link":"Post link: ","copyright_license_title":"Copyright Notice: ","copyright_license_content":"All articles in this blog are licensed under undefined unless otherwise stated.","copy_success":"Copied","copy_failure":"Copy failed","open_read_mode":"Enter reading mode","exit_read_mode":"Exit reading mode","notice_outdate_message":"It has been undefined days since the last update, the content of the article may be outdated.","just":"Just","min":"minutes ago","hour":"hours ago","day":"days ago","month":"months ago"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false}};</script>
-<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-08-22 09:35:40"};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-08-23 09:18:26"};</script>
 
 <!-- Theme mode css -->
 <link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.0.9" id="trm-switch-style">
@@ -385,6 +385,17 @@
 <li>relative：<ul>
 <li>相对与原本的位置偏移</li>
 <li>原来标准流的位置继续占有，不脱标：其他盒子不会占有它原本的位置</li>
+</ul>
+</li>
+<li>absolute：绝对定位<ul>
+<li>以最近一级有定位的祖先元素为准，如果祖先元素有position，那么会根据祖先元素的位置来进行移动，反之根据浏览器为准来定位</li>
+<li>不再占用原有的位置，脱标；</li>
+</ul>
+</li>
+<li>fixed：固定定位<ul>
+<li>以浏览器的可视窗口来移动元素，添加left和right属性即可</li>
+<li>脱标，固定定位是一种特殊的绝对定位</li>
+<li>紧贴中间盒子的右边缘（一键上滑到顶部按钮）显示，要先设置固定盒子left:50%，随后设置margin-left为版心盒子的一半像素宽度即可。</li>
 </ul>
 </li>
 </ol>
