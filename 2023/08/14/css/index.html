@@ -15,7 +15,7 @@
 <meta property="og:description" content="css1.选择器​	后代选择器、子代选择器、并集选择器、链接伪类选择器（a{},a:hover{}）、:focus选择器（input:focus{}） 2.css的三大特性 层叠性：根据就近原则，哪个css离元素近则采用哪个  继承性：body定义的样式会继承到该body下的所有子元素  优先级：继承&#x2F;通配符样式（0,0,0,0）&lt;元素选择器（0,0,0,1）&lt;类选择器、伪类">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-08-14T00:54:17.000Z">
-<meta property="article:modified_time" content="2023-08-25T01:17:54.517Z">
+<meta property="article:modified_time" content="2023-08-29T01:24:54.363Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
@@ -62,7 +62,7 @@
 
 <!-- Variable -->
 <script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"John Doe","root":"/","typed_text":null,"theme_version":"2.0.9","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"/img/favicon.svg","icon16":"/img/favicon.svg","icon32":"/img/favicon.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":false,"hidden":"/failure.ico","showText":"(/≧▽≦/)Hey! Good again!","hideText":"(●—●)Oh, crash!"},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms","author":"Post author: ","copyright_link":"Post link: ","copyright_license_title":"Copyright Notice: ","copyright_license_content":"All articles in this blog are licensed under undefined unless otherwise stated.","copy_success":"Copied","copy_failure":"Copy failed","open_read_mode":"Enter reading mode","exit_read_mode":"Exit reading mode","notice_outdate_message":"It has been undefined days since the last update, the content of the article may be outdated.","just":"Just","min":"minutes ago","hour":"hours ago","day":"days ago","month":"months ago"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false}};</script>
-<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-08-25 09:17:54"};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-08-29 09:24:54"};</script>
 
 <!-- Theme mode css -->
 <link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.0.9" id="trm-switch-style">
@@ -432,7 +432,23 @@
 <li>overflow：auto，若内容溢出则添加滚动条；如果是有定位的盒子，慎用overflow:hidden，因为有些盒子设计是漏出的</li>
 </ol>
 <h2 id="8-flex布局"><a href="#8-flex布局" class="headerlink" title="8. flex布局"></a>8. flex布局</h2><ol>
-<li>当我们为父元素设定flex布局后，子元素的float和clear将失效（子元素设置flex:1可实现水平摆放），vertical-align将失效</li>
+<li><p>当我们为父元素设定flex布局后，子元素的float和clear将失效（子元素设置flex:1可实现水平摆放），vertical-align将失效</p>
+<ul>
+<li>父元素设置flex-direction：row，即设置主轴为行，并从左到右排；对应的，设置flex-direction：column，则主轴为列，从上到下排</li>
+<li>justify-content设置主轴子元素的排列方式：flex-start、flex-end、center、space-around、space-between</li>
+<li>flex-wrap：默认不换行，如果父盒子的宽度不够子元素在主轴排列，子元素会缩小宽度继续放在主轴显示，所以父元素需设置flex-wrap：wrap</li>
+<li>align-item（单行）：设置子元素在侧轴的排列方式；特殊设置为stretch，子元素不给高度，则可以拉伸至父元素这么高</li>
+<li>align-content（多行）：设置子元素在侧轴的排列方式，只用于子元素出现换行的情况，单行时无效；</li>
+<li>flex-flow：row wrap;相当于flex-direction和flex-wrap的简写</li>
+</ul>
+</li>
+<li><p>子项flex属性：定义子项目分配剩余空间</p>
+<ul>
+<li>flex表示占多少份数，如果有三个子项，都设置flex:1，则会平分空间</li>
+<li>align-self：继承align-items属性，该属性可设置某一子项的排列方式，使用方式：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">子元素:nth-child(index)：align-self:flex-end;</span><br></pre></td></tr></table></figure></li>
+<li>order设置子项的排序方式，数值越小越靠前，比如设置子元素:nth-child(index)：-1;则会提到最前面</li>
+</ul>
+</li>
 </ol>
 
 </article>
